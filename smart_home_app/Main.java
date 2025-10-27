@@ -43,12 +43,12 @@ public class Main {
         //-------------------------------------------------------------
         Scanner input = new Scanner(System.in);
         while(true) {
-            System.out.print("\n****************************");
+            System.out.print("\n*************");
             System.out.print("\n1. Bulb");
-            System.out.print("\n2. Thuy Linh cute");
-            System.out.print("\n3. Thuy Linh cute vai ca lon");
-            System.out.print("\n4. Thuy linh xinh quaaaaaaaaaa");
-            System.out.print("\n****************************");
+            System.out.print("\n2. LCD");
+            System.out.print("\n3. ");
+            System.out.print("\n4. ");
+            System.out.print("\n*************");
             System.out.print("\nChoose device (0 to exit): ");
             Integer device = input.nextInt();
             if(device == 0) break;
