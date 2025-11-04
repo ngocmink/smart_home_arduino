@@ -37,7 +37,7 @@ public class SmartLCD implements SmartDevice{
     public String printLCD(String message, SerialPort sp) throws IOException {
         this.message = message;
         System.out.println("Printing <" + this.message + "> on LCD.");
-        sp.getOutputStream().write(message.getBytes());
+        sp.getOutputStream().write(("LCD_PRINT:" + message).getBytes());
         return this.message;
     }   
 }

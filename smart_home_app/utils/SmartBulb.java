@@ -40,7 +40,7 @@ public class SmartBulb implements SmartDevice {
             System.out.print("\nInvalid number.");
             return 0;
         }
-        sp.getOutputStream().write(blinks.byteValue());
+        sp.getOutputStream().write(("BULB_BLINK:" + String.valueOf(blinks)).getBytes());
         return blinks;
     }
 }

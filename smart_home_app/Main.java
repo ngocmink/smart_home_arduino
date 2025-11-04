@@ -36,17 +36,13 @@ public class Main {
         System.out.println("Deactivating all devices...");
         hub.deactivateAllDevices(sp);
 
-        Integer b = bulb.blinks(sp);
-        while(b == 0) b = bulb.blinks(sp);
-        System.out.println("Blink " + b + " times.");
-
         //-------------------------------------------------------------
         Scanner input = new Scanner(System.in);
         while(true) {
             System.out.print("\n*************");
             System.out.print("\n1. Bulb");
             System.out.print("\n2. LCD");
-            System.out.print("\n3. ");
+            System.out.print("\n3. Thermostat");
             System.out.print("\n4. ");
             System.out.print("\n*************");
             System.out.print("\nChoose device (0 to exit): ");
@@ -60,7 +56,7 @@ public class Main {
                 LCDMenu.show(sp, input, LCD);
             }
             else if(device == 3){
-
+                ThermoMenu.show(sp, input, thermostat, LCD);
             }
             else{
                 System.out.println("Invalid device.");
