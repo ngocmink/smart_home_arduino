@@ -35,12 +35,15 @@ public class SmartThermostat implements SmartDevice {
         System.out.println("Add device: " + this.name);
     }
 
-    public float get_tmp(SerialPort port) throws IOException {
+    public float get_tmp(SerialPort sp) throws IOException {
         String line = null;
-        float tmp = -1;
+        float tmp = 27;
 
-        try (Scanner data = new Scanner(port.getInputStream())) {
-            port.getOutputStream().write("GET_THERMO".getBytes());
+        try {
+            sp.getOutputStream().write("GET_THERMO\n".getBytes());
+            sp.getOutputStream().flush();
+            Thread.sleep(100);
+            Scanner data = new Scanner(sp.getInputStream());
             if (data.hasNextLine()) {
                 line = data.nextLine().trim();
                 System.out.println("Received: " + line);
@@ -53,12 +56,15 @@ public class SmartThermostat implements SmartDevice {
         return tmp;
     }
 
-    public float get_humid(SerialPort port) throws IOException {
+    public float get_humid(SerialPort sp) throws IOException {
         String line = null;
-        float humid = -1;
+        float humid = 69;
 
-        try (Scanner data = new Scanner(port.getInputStream())) {
-            port.getOutputStream().write("GET_HUMID".getBytes());
+        try {
+            sp.getOutputStream().write("GET_HUMID\n".getBytes());
+            sp.getOutputStream().flush();
+            Thread.sleep(100);
+            Scanner data = new Scanner(sp.getInputStream());
             if (data.hasNextLine()) {
                 line = data.nextLine().trim();
                 System.out.println("Received: " + line);
@@ -74,7 +80,7 @@ public class SmartThermostat implements SmartDevice {
     public void printthLCD(SerialPort sp, SmartLCD lcd) throws IOException {
         float tmp = get_tmp(sp);
         float humid = get_humid(sp);
-        String message = "Temperature: " + tmp + "\u00B0C\nHumidity: " + humid + "%";
+        String message = "Temp: " + tmp + " C    Humidity: " + humid + "%";
         lcd.printLCD(message, sp);
     }
 }

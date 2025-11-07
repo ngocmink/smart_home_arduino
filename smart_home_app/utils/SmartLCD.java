@@ -13,6 +13,7 @@ public class SmartLCD implements SmartDevice{
     public void turnOn(SerialPort sp) throws IOException {
         on = true;
         sp.getOutputStream().write("LCD_ON".getBytes());
+        sp.getOutputStream().flush();
         System.out.println("LCD: LCD turned on.");
     }
 
@@ -20,6 +21,7 @@ public class SmartLCD implements SmartDevice{
     public void turnOff(SerialPort sp) throws IOException {
         on = false;
         sp.getOutputStream().write("LCD_OFF".getBytes());
+        sp.getOutputStream().flush();
         System.out.println("LCD: LCD turned off.");
     }
 
@@ -38,6 +40,7 @@ public class SmartLCD implements SmartDevice{
         this.message = message;
         System.out.println("Printing <" + this.message + "> on LCD.");
         sp.getOutputStream().write(("LCD_PRINT:" + message).getBytes());
+        sp.getOutputStream().flush();
         return this.message;
     }   
 }

@@ -32,10 +32,6 @@ public class Main {
         System.out.println("Activating all devices...");
         hub.activateAllDevices(sp);
 
-        // Deactivating all devices
-        System.out.println("Deactivating all devices...");
-        hub.deactivateAllDevices(sp);
-
         //-------------------------------------------------------------
         Scanner input = new Scanner(System.in);
         while(true) {
@@ -63,5 +59,9 @@ public class Main {
             }
         }
         input.close();
+
+        // Deactivating all devices
+        System.out.println("Deactivating all devices...");
+        hub.deactivateAllDevices(sp);
     }
 }

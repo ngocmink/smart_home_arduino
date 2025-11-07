@@ -13,6 +13,7 @@ public class SmartBulb implements SmartDevice {
     public void turnOn(SerialPort sp) throws IOException {
         on = true;
         sp.getOutputStream().write("BULB_ON".getBytes());
+        sp.getOutputStream().flush();
         System.out.println("SmartBulb: Bulb turned on.");
     }
 
@@ -20,6 +21,7 @@ public class SmartBulb implements SmartDevice {
     public void turnOff(SerialPort sp) throws IOException {
         on = false;
         sp.getOutputStream().write("BULB_OFF".getBytes());
+        sp.getOutputStream().flush();
         System.out.println("SmartBulb: Bulb turned off.");
     }
 
@@ -41,6 +43,7 @@ public class SmartBulb implements SmartDevice {
             return 0;
         }
         sp.getOutputStream().write(("BULB_BLINK:" + String.valueOf(blinks)).getBytes());
+        sp.getOutputStream().flush();
         return blinks;
     }
 }
