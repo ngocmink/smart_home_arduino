@@ -30,4 +30,8 @@ public class SmartHomeHub {
             device.turnOff(sp);
         }
     }
+
+    public List<SmartDevice> get_devices(){
+        return devices;
+    }
 }

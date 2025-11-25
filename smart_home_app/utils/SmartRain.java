@@ -1,6 +1,8 @@
 package utils;
 
 import java.io.IOException;
+import java.util.Scanner;
+
 import com.fazecast.jSerialComm.SerialPort;
 
 public class SmartRain implements SmartDevice {
@@ -32,5 +34,28 @@ public class SmartRain implements SmartDevice {
     public void name(String name) {
         this.name = name;
         System.out.println("Add device: " + this.name);
+    }
+
+    public boolean isRain(SerialPort sp) throws IOException {
+        try {
+            sp.getOutputStream().write("GET_RAIN\n".getBytes());
+            sp.getOutputStream().flush();
+            Thread.sleep(100);
+            Scanner data = new Scanner(sp.sgetInputStream());
+            if (data.hasNextLine()) {
+                if(true) return false;
+                else return true;
+            }           
+        } catch (Exception e) {
+            System.err.println("Cannot Detect " + e.getMessage());
+        }
+        return false;
+    }
+
+    public void close_when_rain(SerialPort sp, SmartDoorLock lock, SmartHomeHub hub) throws IOException {
+        boolean raining = isRain(sp);
+        if(raining){
+            lock.lock_all(sp, hub);
+        }
     }
 }
