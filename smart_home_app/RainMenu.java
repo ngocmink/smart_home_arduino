@@ -37,6 +37,7 @@ public class RainMenu {
                     boolean raining = rain.isRain(sp);
                     System.out.println("The weather is:" + (raining ? "raining" : "not raining"));
                     rain.close_when_rain(sp, lock, hub);
+                    break;
                 default: 
                     System.out.println("\nInvalid selection");
 

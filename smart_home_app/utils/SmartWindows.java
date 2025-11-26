@@ -6,11 +6,29 @@ import java.io.Serial;
 
 
 public class SmartWindows extends SmartDoorLock {
-    
-    private boolean locked = false; 
 
-    public void close_when_turn_on_AC(SerialPort sp) throws IOException {
-        
+    public void close_when_turn_on_AC(SerialPort sp, SmartAC ac, SmartHomeHub hub) throws IOException {
+        if(ac.isOn() == true){
+            lock_all(sp, hub);
+        }
     }
     
+    @Override
+    public void lock_all(SerialPort sp, SmartHomeHub hub) throws IOException {
+        for (SmartDevice device : hub.get_devices()) {
+            if (device instanceof SmartWindows) {
+                ((SmartWindows) device).lock(sp);
+            }
+        }
+    }
+
+    @Override
+    public void unlock_all(SerialPort sp, SmartHomeHub hub) throws IOException {
+        for (SmartDevice device : hub.get_devices()) {
+            if (device instanceof SmartWindows) {
+                ((SmartWindows) device).unlock(sp);
+            }
+        }
+    }
+
 }

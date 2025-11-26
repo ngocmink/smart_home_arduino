@@ -25,6 +25,7 @@ public class Main {
         SmartDoorLock main_door = new SmartDoorLock();
         SmartWindows window_1 = new SmartWindows();
         SmartWindows window_2 = new SmartWindows();
+        SmartAC ac = new SmartAC();
 
         // Adding devices to the hub
         hub.addDevice(bulb, "Neon_Bulb");
@@ -33,6 +34,7 @@ public class Main {
         hub.addDevice(main_door, "Main_Door");
         hub.addDevice(window_1, "Window_1");
         hub.addDevice(window_2, "Window_2");
+        hub.addDevice(ac, "Air Conditioner");
 
         // Activating all devices
         System.out.println("Activating all devices...");
@@ -45,7 +47,8 @@ public class Main {
             System.out.print("\n1. Bulb");
             System.out.print("\n2. LCD");
             System.out.print("\n3. Thermostat");
-            System.out.print("\n4. ");
+            System.out.print("\n4. Door/Windows");
+            System.out.print("\n5. Air Conditioner");
             System.out.print("\n*************");
             System.out.print("\nChoose device (0 to exit): ");
             Integer device = input.nextInt();
@@ -59,6 +62,8 @@ public class Main {
             }
             else if(device == 3){
                 ThermoMenu.show(sp, input, thermostat, LCD);
+                ac.auto_turn_on_AC(sp);
+                window_1.close_when_turn_on_AC(sp, ac, hub);
             }
             else if(device == 4){
                 System.out.print("\n*************");
@@ -71,11 +76,19 @@ public class Main {
                 switch (dw) {
                     case 1:
                         DoorLockMenu.show(sp, input, main_door, hub);
+                        break;
                     case 2: 
                         DoorLockMenu.show(sp, input, window_1, hub);
+                        break;
                     case 3: 
                         DoorLockMenu.show(sp, input, window_2, hub);
+                        break;
                 }
+            }
+            else if(device == 5){
+                ThermoMenu.show(sp, input, ac, LCD);
+                ac.auto_turn_on_AC(sp);
+                window_1.close_when_turn_on_AC(sp, ac, hub);
             }
             else{
                 System.out.println("Invalid device.");
