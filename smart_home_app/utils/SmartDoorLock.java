@@ -9,22 +9,22 @@ import java.io.Serial;
 public class SmartDoorLock implements SmartDevice {
     
     private boolean locked = false; 
-
+    private String name = "";
   
     @Override
     public void turnOn(SerialPort sp) throws IOException {
         locked = true;
-        sp.getOutputStream().write("DOOR_LOCK".getBytes());
+        sp.getOutputStream().write("DOOR_LOCK\n".getBytes());
         sp.getOutputStream().flush();
-        System.out.println("SmartDoorLock: Door has been LOCKED.");
+        System.out.println(name + ": Door has been LOCKED.");
     }
 
     @Override
     public void turnOff(SerialPort sp) throws IOException {
         locked = false;
-        sp.getOutputStream().write("DOOR_UNLOCK".getBytes());
+        sp.getOutputStream().write("DOOR_UNLOCK\n".getBytes());
         sp.getOutputStream().flush();
-        System.out.println("SmartDoorLock: Door has been UNLOCKED.");
+        System.out.println(name + ": Door has been UNLOCKED.");
     }
 
     @Override
@@ -36,6 +36,7 @@ public class SmartDoorLock implements SmartDevice {
     @Override
     public void name(String name) {
         System.out.println("Add device: " + name);
+        this.name = name;
     }
     
     public void lock(SerialPort sp) throws IOException {
@@ -47,17 +48,22 @@ public class SmartDoorLock implements SmartDevice {
     }
 
     public void lock_all(SerialPort sp, SmartHomeHub hub) throws IOException {
-        for (SmartDevice device : hub.get_devices()) {
-            if (device instanceof SmartDoorLock) {
-                ((SmartDoorLock) device).lock(sp);
-            }
-        }
+        setLockState(sp, hub, true);
     }
 
     public void unlock_all(SerialPort sp, SmartHomeHub hub) throws IOException {
+        setLockState(sp, hub, false);
+    }
+
+    private void setLockState(SerialPort sp, SmartHomeHub hub, boolean shouldLock) throws IOException {
         for (SmartDevice device : hub.get_devices()) {
             if (device instanceof SmartDoorLock) {
-                ((SmartDoorLock) device).unlock(sp);
+                SmartDoorLock lock = (SmartDoorLock) device;
+                if (shouldLock) {
+                    lock.lock(sp);
+                } else {
+                    lock.unlock(sp);
+                }
             }
         }
     }

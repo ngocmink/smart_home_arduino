@@ -25,6 +25,7 @@ public class Main {
         SmartDoorLock main_door = new SmartDoorLock();
         SmartWindows window_1 = new SmartWindows();
         SmartWindows window_2 = new SmartWindows();
+        SmartRain rain = new SmartRain();
         SmartAC ac = new SmartAC();
 
         // Adding devices to the hub
@@ -34,6 +35,7 @@ public class Main {
         hub.addDevice(main_door, "Main_Door");
         hub.addDevice(window_1, "Window_1");
         hub.addDevice(window_2, "Window_2");
+        hub.addDevice(rain, "Rain Sensor");
         hub.addDevice(ac, "Air Conditioner");
 
         // Activating all devices
@@ -48,7 +50,8 @@ public class Main {
             System.out.print("\n2. LCD");
             System.out.print("\n3. Thermostat");
             System.out.print("\n4. Door/Windows");
-            System.out.print("\n5. Air Conditioner");
+            System.out.print("\n5. Rain Sensor");
+            System.out.print("\n6. Air Conditioner");
             System.out.print("\n*************");
             System.out.print("\nChoose device (0 to exit): ");
             Integer device = input.nextInt();
@@ -86,6 +89,10 @@ public class Main {
                 }
             }
             else if(device == 5){
+                RainMenu.show(sp, input, rain, main_door, hub);
+                rain.close_when_rain(sp, main_door, hub);
+            }
+            else if(device == 6){
                 ThermoMenu.show(sp, input, ac, LCD);
                 ac.auto_turn_on_AC(sp);
                 window_1.close_when_turn_on_AC(sp, ac, hub);

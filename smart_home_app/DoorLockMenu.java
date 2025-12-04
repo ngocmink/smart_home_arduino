@@ -10,9 +10,11 @@ public class DoorLockMenu {
         while (true) {
             System.out.println("\n--- Door Lock Menu ---");
             System.out.println("Current status: " + (lock.isOn() ? "LOCKED" : "UNLOCKED"));
+            System.out.print("\n0. Back to Main Menu");
             System.out.print("\n1. Lock Door");
             System.out.print("\n2. Unlock Door");
-            System.out.print("\n0. Back to Main Menu");
+            System.out.print("\n3. Lock all door");
+            System.out.print("\n4. Unlock all door");
             System.out.print("\nChoose option: ");
 
             Integer action = input.nextInt();
@@ -29,11 +31,11 @@ public class DoorLockMenu {
                     lock.unlock(sp); 
                     break;
                 case 3:
-                    System.out.println("Unlocking door...");
+                    System.out.println("Lock all door...");
                     lock.lock_all(sp, hub); 
                     break;
                 case 4:
-                    System.out.println("Unlocking door...");
+                    System.out.println("Unlock all door...");
                     lock.unlock_all(sp, hub); 
                     break;
                 default:

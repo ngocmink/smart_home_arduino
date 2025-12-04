@@ -36,25 +36,29 @@ public class SmartRain implements SmartDevice {
         System.out.println("Add device: " + this.name);
     }
 
-    public boolean isRain(SerialPort sp) throws IOException {
+    public boolean isRaining(SerialPort sp) throws IOException {
+        if (!on) return false; 
         try {
             sp.getOutputStream().write("GET_RAIN\n".getBytes());
             sp.getOutputStream().flush();
-            Thread.sleep(100);
-            Scanner data = new Scanner(sp.sgetInputStream());
+            Thread.sleep(200); 
+            Scanner data = new Scanner(sp.getInputStream());
             if (data.hasNextLine()) {
-                if(true) return false;
-                else return true;
-            }           
+                String response = data.nextLine().trim();
+                if (response.equals("RAINING")) {   
+                    return true;
+                }
+            }
         } catch (Exception e) {
-            System.err.println("Cannot Detect " + e.getMessage());
+            System.err.println("Cannot detect rain status: " + e.getMessage());
         }
         return false;
     }
 
     public void close_when_rain(SerialPort sp, SmartDoorLock lock, SmartHomeHub hub) throws IOException {
-        boolean raining = isRain(sp);
+        boolean raining = isRaining(sp);      
         if(raining){
+            System.out.println("WARNING: It is raining! Closing window...");
             lock.lock_all(sp, hub);
         }
     }
