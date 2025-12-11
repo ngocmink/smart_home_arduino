@@ -5,7 +5,7 @@ import com.fazecast.jSerialComm.SerialPort;
 import java.util.Scanner;
 
 public class ThermoMenu {
-    public static void show(SerialPort sp, Scanner input, SmartThermostat thermo, SmartLCD lcd) throws IOException, InterruptedException {
+    public static void show(SerialPort sp, Scanner input, SmartThermostat thermo, SmartLCD lcd, SmartDoorLock door, SmartHomeHub hub) throws IOException, InterruptedException {
         while (true) {
             System.out.println("\n--- Thermo Menu ---");
             System.out.println("1. Turn ON");
@@ -19,10 +19,17 @@ public class ThermoMenu {
 
             switch (action) {
                 case 1:
-                    thermo.turnOn(sp);
-                    break;
+                    if (thermo != null) {
+                        if (thermo instanceof SmartAC) {
+                            ((SmartAC) thermo).turnOn(sp, door, hub);  
+                        }
+                        else thermo.turnOn(sp);
+                        break;
+                    }
                 case 2:
-                    thermo.turnOff(sp);
+                    if (thermo != null) {
+                        thermo.turnOff(sp);
+                    }
                     break;
                 case 3:
                     float tmp = thermo.get_tmp(sp);

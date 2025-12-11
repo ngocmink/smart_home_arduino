@@ -45,14 +45,14 @@ public class Main {
         //-------------------------------------------------------------
         Scanner input = new Scanner(System.in);
         while(true) {
-            System.out.print("\n*************");
+            System.out.print("\n*********************");
             System.out.print("\n1. Bulb");
             System.out.print("\n2. LCD");
             System.out.print("\n3. Thermostat");
             System.out.print("\n4. Door/Windows");
             System.out.print("\n5. Rain Sensor");
             System.out.print("\n6. Air Conditioner");
-            System.out.print("\n*************");
+            System.out.print("\n*********************");
             System.out.print("\nChoose device (0 to exit): ");
             Integer device = input.nextInt();
             if(device == 0) break;
@@ -64,7 +64,7 @@ public class Main {
                 LCDMenu.show(sp, input, LCD);
             }
             else if(device == 3){
-                ThermoMenu.show(sp, input, thermostat, LCD);
+                ThermoMenu.show(sp, input, thermostat, LCD, main_door, hub);
                 ac.auto_turn_on_AC(sp);
                 window_1.close_when_turn_on_AC(sp, ac, hub);
             }
@@ -93,7 +93,7 @@ public class Main {
                 rain.close_when_rain(sp, main_door, hub);
             }
             else if(device == 6){
-                ThermoMenu.show(sp, input, ac, LCD);
+                ThermoMenu.show(sp, input, ac, LCD, main_door, hub);
                 ac.auto_turn_on_AC(sp);
                 window_1.close_when_turn_on_AC(sp, ac, hub);
             }

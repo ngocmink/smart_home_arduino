@@ -10,12 +10,11 @@ public class DoorLockMenu {
         while (true) {
             System.out.println("\n--- Door Lock Menu ---");
             System.out.println("Current status: " + (lock.isOn() ? "LOCKED" : "UNLOCKED"));
-            System.out.print("\n0. Back to Main Menu");
             System.out.print("\n1. Lock Door");
             System.out.print("\n2. Unlock Door");
             System.out.print("\n3. Lock all door");
             System.out.print("\n4. Unlock all door");
-            System.out.print("\nChoose option: ");
+            System.out.print("\nChoose action (0 to exit): ");
 
             Integer action = input.nextInt();
             if (action == 0) break;

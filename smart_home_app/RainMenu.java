@@ -9,12 +9,11 @@ public class RainMenu {
     public static void show(SerialPort sp, Scanner input, SmartRain rain, SmartDoorLock lock, SmartHomeHub hub) throws IOException, InterruptedException {
         while(true){
             System.out.println("\n--- Rain Menu ---");
-            System.out.println("0. Back to Main Menu");
             System.out.println("1. Turn ON");
             System.out.println("2. Turn OFF");
             System.out.println("3. Check Status");
             System.out.println("4. Check Rain");
-            System.out.print("\nChoose option: ");
+            System.out.print("Choose action (0 to exit): ");
 
             Integer action = input.nextInt();
             if (action == 0) break;

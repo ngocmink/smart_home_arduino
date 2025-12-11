@@ -7,11 +7,11 @@ public class SmartAC extends SmartThermostat {
 
     private boolean on = false;
 
-    @Override
-    public void turnOn(SerialPort sp) throws IOException {
+    public void turnOn(SerialPort sp, SmartDoorLock door, SmartHomeHub hub) throws IOException {
         on = true;
         sp.getOutputStream().write("AC_ON\n".getBytes());
         sp.getOutputStream().flush();
+        door.lock_all(sp, hub);
         System.out.println("Turning on AC...");
     }
 
