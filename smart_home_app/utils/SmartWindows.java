@@ -7,8 +7,8 @@ import java.io.Serial;
 
 public class SmartWindows extends SmartDoorLock {
 
-    public void close_when_turn_on_AC(SerialPort sp, SmartAC ac, SmartHomeHub hub) throws IOException {
-        if(ac.isOn() == true){
+    public void close_when_rain(SerialPort sp, SmartRain rain, SmartHomeHub hub) throws IOException {
+        if(rain.isRaining(sp) == true){
             lock_all(sp, hub);
         }
     }

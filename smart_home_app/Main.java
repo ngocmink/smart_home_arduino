@@ -66,7 +66,6 @@ public class Main {
             else if(device == 3){
                 ThermoMenu.show(sp, input, thermostat, LCD, main_door, hub);
                 ac.auto_turn_on_AC(sp);
-                window_1.close_when_turn_on_AC(sp, ac, hub);
             }
             else if(device == 4){
                 System.out.print("\n*************");
@@ -81,21 +80,22 @@ public class Main {
                         DoorLockMenu.show(sp, input, main_door, hub);
                         break;
                     case 2: 
+                        window_1.close_when_rain(sp, rain, hub);
                         DoorLockMenu.show(sp, input, window_1, hub);
                         break;
                     case 3: 
+                        window_1.close_when_rain(sp, rain, hub);
                         DoorLockMenu.show(sp, input, window_2, hub);
                         break;
                 }
             }
             else if(device == 5){
-                RainMenu.show(sp, input, rain, main_door, hub);
-                rain.close_when_rain(sp, main_door, hub);
+                RainMenu.show(sp, input, rain, window_1, hub);
+                rain.close_when_rain(sp, window_1, hub);
             }
             else if(device == 6){
                 ThermoMenu.show(sp, input, ac, LCD, main_door, hub);
                 ac.auto_turn_on_AC(sp);
-                window_1.close_when_turn_on_AC(sp, ac, hub);
             }
             else{
                 System.out.println("Invalid device.");

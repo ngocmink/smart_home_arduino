@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class RainMenu {
 
-    public static void show(SerialPort sp, Scanner input, SmartRain rain, SmartDoorLock lock, SmartHomeHub hub) throws IOException, InterruptedException {
+    public static void show(SerialPort sp, Scanner input, SmartRain rain, SmartWindows window, SmartHomeHub hub) throws IOException, InterruptedException {
         while(true){
             System.out.println("\n--- Rain Menu ---");
             System.out.println("1. Turn ON");
@@ -36,7 +36,7 @@ public class RainMenu {
                     System.out.println("Checking rain...");
                     boolean raining = rain.isRaining(sp);
                     System.out.println("The weather is " + (raining ? "raining" : "not raining"));
-                    rain.close_when_rain(sp, lock, hub);
+                    rain.close_when_rain(sp, window, hub);
                     break;
                 default: 
                     System.out.println("\nInvalid selection");

@@ -55,7 +55,7 @@ public class SmartRain implements SmartDevice {
         return false;
     }
 
-    public void close_when_rain(SerialPort sp, SmartDoorLock lock, SmartHomeHub hub) throws IOException {
+    public void close_when_rain(SerialPort sp, SmartWindows lock, SmartHomeHub hub) throws IOException {
         boolean raining = isRaining(sp);      
         if(raining){
             System.out.println("WARNING: It is raining! Closing window...");
