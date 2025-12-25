@@ -137,6 +137,5 @@ We would like to sincerely thank:
 - Arduino Documentation: https://www.arduino.cc/reference/en
 - jSerialComm Library: https://fazecast.github.io/jSerialComm
 - DHT Sensor Library Documentation
-- Internet of Things (IoT) Design Patterns
-- Object-Oriented Programming Concepts
+- Website `Banlinhkien.com`
 
