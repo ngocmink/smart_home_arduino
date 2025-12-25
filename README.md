@@ -128,7 +128,7 @@ We would like to sincerely thank:
 - Hanoi University of Science and Technology (HUST)
 - Object-Oriented Programming course instructors
 - Arduino open-source community
-- Team 11 members for their dedication and teamwork
+- Group members for their dedication and teamwork
 
 ---
 
