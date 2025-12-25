@@ -2,25 +2,29 @@
   <img src="res/images/banner_smarthome.png" alt="Banner" width="100%">
 </div>
 
-[![CONTRIBUTORS](https://img.shields.io/badge/CONTRIBUTORS-View-blue?style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/graphs/contributors)
-[![FORKS](https://img.shields.io/github/forks/ngocmink/smart_home_arduino?label=FORKS&color=3DA639&style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/network/members)
-[![STARS](https://img.shields.io/github/stars/ngocmink/smart_home_arduino?label=STARS&color=F9C846&style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/stargazers)
-[![ISSUES](https://img.shields.io/github/issues/ngocmink/smart_home_arduino?label=ISSUES&color=E63946&style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/issues)
-
-<br />
 <div align="center">
-  <a href="https://github.com/YourUsername/RepoName">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg" alt="Logo" width="150" height="150">
-  </a>
 
-  <h3 align="center">SMART HOME ARDUINO PROJECT</h3>
-  <h4 align="center">Team 11</h4>
+[![CONTRIBUTORS](https://img.shields.io/github/contributors/ngocmink/smart_home_arduino?label=CONTRIBUTORS&color=2F80ED&style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/graphs/contributors)
+[![FORKS](https://img.shields.io/github/forks/ngocmink/smart_home_arduino?label=FORKS&color=27AE60&style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/network/members)
+[![STARS](https://img.shields.io/github/stars/ngocmink/smart_home_arduino?label=STARS&color=F2C94C&style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/stargazers)
+[![ISSUES](https://img.shields.io/github/issues/ngocmink/smart_home_arduino?label=ISSUES&color=EB5757&style=for-the-badge)](https://github.com/ngocmink/smart_home_arduino/issues)
+
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg" alt="Arduino Logo" width="140"/>
+
+  <h2>SMART HOME ARDUINO PROJECT</h2>
+  <h4>Team 11</h4>
 
   <p align="center">
-    An IoT system for Home Automation created with OOP Java, Arduino & C++!
-    <br />
-    <br />
-    <a href="https://youtu.be/YourDemoVideoLink">View Demo</a>
+    An IoT-based Home Automation System using <b>Arduino, C++ and OOP Java</b>.
+    <br/>
+    Designed for monitoring environment and home security.
+    <br/><br/>
+    <a href="https://youtu.be/YourDemoVideoLink"><b>▶ View Demo</b></a>
   </p>
 </div>
 
@@ -32,7 +36,7 @@
 5. [Acknowledgments](#Acknowledgments)
 6. [References](#References)
 
-## Introduction <a name="Introduction"></a> :house:
+## 1. Introduction <a name="Introduction"></a> :house:
 
 <div align="center">
   <img src="screenshots/Intro_Model.gif" alt="Smart Home Model">
@@ -51,19 +55,88 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 |   3   |      Nguyen Dang Minh   |  202416567  | Coding (Java), Slides         |                  https://github.com/hustsak                   |
 |   4   |      Koy Viraksak       |  202400164  | Coding (Java)                 |                  https://github.com/minhnoluv1234             |
 
-## Installation <a name="Installation"></a> :hammer_and_wrench:
+## 2. Installation <a name="Installation"></a> :hammer_and_wrench:
 
 1. **Hardware Setup**: Assemble the circuit following the diagram in the `docs` folder.
 2. **Software Prerequisites**:
    * Install [Arduino IDE](https://www.arduino.cc/en/software).
-   * Install required libraries (DHT sensor library, LiquidCrystal I2C, Blynk/ESP8266WiFi).
+   * Install required libraries (DHT sensor library, LiquidCrystal I2C).
    * Install jSerialComm-2.11.2.jar library for SerialPort
 3. **Clone the repo**:
    ```sh
    git clone https://github.com/ngocmink/smart_home_arduino
 4. Connect the kit and run code.
 
-## Circuit & Flowchart <a name="Circuit-Flowchart"></a> :actix:
-## Introduction <a name="Introduction"></a> :house:
-## Introduction <a name="Introduction"></a> :house:
-## Introduction <a name="Introduction"></a> :house:
+## 3. Circuit & Flowchart <a name="Circuit-Flowchart"></a> :electric_plug:
+
+### 🔧 Circuit Diagram
+
+<div align="center">
+  <img src="docs/circuit_diagram.png" alt="Circuit Diagram" width="80%">
+</div>
+
+**Circuit Description:**
+- Arduino acts as the central controller.
+- DHT sensor measures temperature and humidity.
+- Relay modules control electrical devices such as lights and fans.
+- LCD displays real-time sensor data.
+- Serial communication enables data exchange between Arduino and Java application.
+
+---
+
+### 🔄 System Flowchart
+
+<div align="center">
+  <img src="docs/flowchart.png" alt="System Flowchart" width="80%">
+</div>
+
+**Flow Explanation:**
+1. Arduino collects data from sensors.
+2. Sensor data is transmitted to the Java application via Serial Port.
+3. Users interact with the GUI to monitor data and control devices.
+4. Control commands are sent back to Arduino.
+5. Arduino updates actuators and LCD display accordingly.
+
+---
+
+## 🧩 4. UML <a name="UML"></a> :triangular_ruler:
+
+<div align="center">
+  <img src="docs/uml_diagram.png" alt="UML Diagram" width="80%">
+</div>
+
+**UML Description:**
+- The system is designed following Object-Oriented Programming principles.
+- Abstract classes are used for sensors and devices.
+- Inheritance simplifies code reuse.
+- Polymorphism allows flexible control of different devices.
+
+**Main Classes:**
+- `Device` (abstract)
+- `Light`, `Fan`, `Relay`
+- `Sensor` (abstract)
+- `DHTSensor`
+- `SmartHomeController`
+- `SerialPortManager`
+
+---
+
+## 5. Acknowledgments <a name="Acknowledgments"></a> :handshake:
+
+We would like to sincerely thank:
+
+- Hanoi University of Science and Technology (HUST)
+- Object-Oriented Programming course instructors
+- Arduino open-source community
+- Team 11 members for their dedication and teamwork
+
+---
+
+## 6. References <a name="References"></a> :books:
+
+- Arduino Documentation: https://www.arduino.cc/reference/en
+- jSerialComm Library: https://fazecast.github.io/jSerialComm
+- DHT Sensor Library Documentation
+- Internet of Things (IoT) Design Patterns
+- Object-Oriented Programming Concepts
+
