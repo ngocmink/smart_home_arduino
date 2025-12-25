@@ -61,7 +61,7 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 2. **Software Prerequisites**:
    * Install [Arduino IDE](https://www.arduino.cc/en/software).
    * Install required libraries (DHT sensor library, LiquidCrystal I2C).
-   * Install jSerialComm-2.11.2.jar library for SerialPort
+   * Install `jSerialComm-2.11.2.jar` library for SerialPort
 3. **Clone the repo**:
    ```sh
    git clone https://github.com/ngocmink/smart_home_arduino
