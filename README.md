@@ -52,8 +52,8 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 | :---: | :---------------------: | :---------: | :---------------------------: | :-----------------------------------------------------------: |
 |   1   |      Nguyen Ngoc Minh   |  202416562  | Coding (Java), Circuit Design |                  https://github.com/ngocmink                  |
 |   2   |      Nguyen Thuy Linh   |  202416547  | Coding (C++), Circuit Design  |                  https://github.com/linhnt-1113               |
-|   3   |      Nguyen Dang Minh   |  202416567  | Coding (Java), Slides         |                  https://github.com/hustsak                   |
-|   4   |      Koy Viraksak       |  202400164  | Coding (Java)                 |                  https://github.com/minhnoluv1234             |
+|   3   |      Nguyen Dang Minh   |  202416567  | Coding (Java), Slides         |                    https://github.com/minhnoluv1234           |
+|   4   |      Koy Viraksak       |  202400164  | Coding (Java)                 |                    https://github.com/hustsak                 |
 
 ## 2. Installation <a name="Installation"></a> :hammer_and_wrench:
 
