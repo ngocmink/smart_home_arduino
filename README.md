@@ -104,7 +104,7 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 ## 🧩 4. UML <a name="UML"></a> :triangular_ruler:
 
 <div align="center">
-  <img src="docs/uml_diagram.png" alt="UML Diagram" width="80%">
+  <img src="assets/uml_smart_home.jpg" alt="UML Diagram" width="80%">
 </div>
 
 **UML Description:**
