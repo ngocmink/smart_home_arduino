@@ -84,7 +84,7 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 
 ---
 
-### 🔄 System Flowchart (Use Cases)
+### 🔄 System Flowchart (Use Case)
 
 <div align="center">
   <img src="assets/flow-chart.jpg"
