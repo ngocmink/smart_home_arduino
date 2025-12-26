@@ -84,7 +84,7 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 
 ---
 
-### 🔄 System Flowchart (Use Case)
+### 🔄 System Flowchart
 
 <div align="center">
   <img src="assets/flow-chart.jpg"
@@ -100,6 +100,13 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 5. Arduino updates actuators and LCD display accordingly.
 
 ---
+
+**Use Case:**
+<div align="center">
+  <img src="assets/use-case.png"
+       alt="Use Case"
+       width="60%">
+</div>
 
 ## 4. UML <a name="UML"></a> :triangular_ruler:
 
