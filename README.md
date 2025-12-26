@@ -101,25 +101,70 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 
 ---
 
-## 🧩 4. UML <a name="UML"></a> :triangular_ruler:
+## 4. UML <a name="UML"></a> :triangular_ruler:
 
 <div align="center">
   <img src="assets/uml_smart_home.jpg" alt="UML Diagram" width="80%">
 </div>
 
-**UML Description:**
-- The system is designed following Object-Oriented Programming principles.
-- Abstract classes are used for sensors and devices.
-- Inheritance simplifies code reuse.
-- Polymorphism allows flexible control of different devices.
+## 🧩 UML Description
 
-**Main Classes:**
-- `Device` (abstract)
-- `Light`, `Fan`, `Relay`
-- `Sensor` (abstract)
-- `DHTSensor`
-- `SmartHomeController`
-- `SerialPortManager`
+- The `SmartDevice` interface defines common behaviors for all smart devices.
+- Concrete devices implement `SmartDevice`, enabling unified control.
+- `SmartHomeHub` manages a collection of smart devices and coordinates system operations.
+- Menu classes separate user interaction logic from device control logic.
+- **Polymorphism** is applied when handling devices via the `SmartDevice` interface.
+- **Loose coupling** is achieved through dependency passing (`SerialPort`, `SmartHomeHub`).
+- The architecture is modular and easily extensible.
+
+
+## 🏗️ Main Classes
+
+### 🔹 Core Interface
+
+- **`SmartDevice` (interface)**
+  - `turnOn(sp: SerialPort)`
+  - `turnOff(sp: SerialPort)`
+  - `isOn(): boolean`
+  - `name(name: String)`
+
+---
+
+### 🔹 Device Classes
+
+- `SmartBulb`
+- `SmartDoorLock`
+- `SmartLCD`
+- `SmartRain`
+- `SmartThermostat`
+- `SmartWindows`
+- `SmartAC`
+
+All device classes implement the `SmartDevice` interface.
+
+---
+
+### 🔹 Controller / Manager
+
+- **`SmartHomeHub`**
+  - Manages a `List<SmartDevice>`
+  - Controls activation and deactivation of all devices
+  - Serves as the central communication hub of the system
+
+---
+
+### 🔹 Menu (UI / Control Layer)
+
+- `BulbMenu`
+- `DoorLockMenu`
+- `LCDMenu`
+- `RainMenu`
+- `ThermoMenu`
+
+Each menu is responsible for:
+- Receiving user input via `Scanner`
+- Invoking corresponding actions on the target device
+
 
 ---
 
