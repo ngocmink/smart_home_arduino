@@ -17,7 +17,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg" alt="Arduino Logo" width="140"/>
 
   <h2>SMART HOME ARDUINO PROJECT</h2>
-  <h4>Team 11</h4>
+  <h4>Team 7</h4>
 
   <p align="center">
     An IoT-based Home Automation System using <b>Arduino, C++ and OOP Java</b>.
