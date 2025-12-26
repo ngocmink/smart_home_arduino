@@ -87,7 +87,9 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 ### 🔄 System Flowchart
 
 <div align="center">
-  <img src="docs/flowchart.png" alt="System Flowchart" width="80%">
+  <img src="assets/flow-chart.jpg"
+       alt="System Flowchart"
+       width="69%">
 </div>
 
 **Flow Explanation:**
