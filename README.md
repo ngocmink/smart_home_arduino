@@ -78,7 +78,7 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 **Circuit Description:**
 - Arduino acts as the central controller.
 - DHT sensor measures temperature and humidity.
-- Relay modules control electrical devices such as lights and fans.
+- Relay modules control motors used for door and window actuation.
 - LCD displays real-time sensor data.
 - Serial communication enables data exchange between Arduino and Java application.
 
