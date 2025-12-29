@@ -72,7 +72,7 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 ### 🔧 Circuit Diagram
 
 <div align="center">
-  <img src="assets/circuit-pcture.jpg" alt="Circuit Diagram" width="80%">
+  <img src="assets/circuit-picture.jpg" alt="Circuit Diagram" width="80%">
 </div>
 
 **Circuit Description:**
