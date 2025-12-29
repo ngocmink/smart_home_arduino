@@ -103,7 +103,7 @@ This is our capstone project for the OOP course. "Smart Home Arduino" is a syste
 
 **Use Case:**
 <div align="center">
-  <img src="assets/use-case.png"
+  <img src="assets/use-case.jpg"
        alt="Use Case"
        width="60%">
 </div>
