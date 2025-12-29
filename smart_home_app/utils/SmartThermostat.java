@@ -37,7 +37,7 @@ public class SmartThermostat implements SmartDevice {
 
     public float get_tmp(SerialPort sp) throws IOException {
         String line = null;
-        float tmp = 27;
+        float tmp = 23;
 
         try {
             sp.getOutputStream().write("GET_THERMO\n".getBytes());
@@ -80,6 +80,8 @@ public class SmartThermostat implements SmartDevice {
     public void printthLCD(SerialPort sp, SmartLCD lcd) throws IOException {
         float tmp = get_tmp(sp);
         float humid = get_humid(sp);
+        if(tmp == 0) tmp = 23;
+        if(humid == 0) humid = 69;
         String message = "Temp: " + tmp + " C    Humidity: " + humid + "%";
         lcd.printLCD(message, sp);
     }
